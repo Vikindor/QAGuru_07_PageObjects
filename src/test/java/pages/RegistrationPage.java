@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.ModalWindowComponent;
 
+import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -109,13 +110,14 @@ public class RegistrationPage {
 
     public RegistrationPage checkValidation() {
         String valueName = "border-color";
-        String color = "rgb(220, 53, 69)"; //red
-        firstNameInput.shouldHave(cssValue(valueName,color));
-        lastNameInput.shouldHave(cssValue(valueName,color));
-        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue(valueName,color));
-        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue(valueName,color));
-        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue(valueName,color));
-        numberInput.shouldHave(cssValue(valueName,color));
+        String colorRed = "rgb(220, 53, 69)";
+        $("#userForm").shouldHave(cssClass("was-validated"));
+        firstNameInput.shouldHave(cssValue(valueName,colorRed));
+        lastNameInput.shouldHave(cssValue(valueName,colorRed));
+        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue(valueName,colorRed));
+        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue(valueName,colorRed));
+        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue(valueName,colorRed));
+        numberInput.shouldHave(cssValue(valueName,colorRed));
         return this;
     }
 
