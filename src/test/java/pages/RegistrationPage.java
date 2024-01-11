@@ -24,7 +24,7 @@ public class RegistrationPage {
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            submitInput = $("#submit");
+            submitButton = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ModalWindowComponent modalWindowComponent = new ModalWindowComponent();
@@ -100,7 +100,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage submit() {
-        submitInput.click();
+        submitButton.click();
         return this;
     }
 
@@ -115,9 +115,9 @@ public class RegistrationPage {
         userForm.shouldHave(cssClass("was-validated"));
         firstNameInput.shouldHave(cssValue(valueName,colorRed));
         lastNameInput.shouldHave(cssValue(valueName,colorRed));
-        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue(valueName,colorRed));
-        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue(valueName,colorRed));
-        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue(valueName,colorRed));
+        genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue(valueName,colorRed)); //Male
+        genderInput.$("label[for='gender-radio-2']").shouldHave(cssValue(valueName,colorRed)); //Female
+        genderInput.$("label[for='gender-radio-3']").shouldHave(cssValue(valueName,colorRed)); //Other
         numberInput.shouldHave(cssValue(valueName,colorRed));
         return this;
     }
