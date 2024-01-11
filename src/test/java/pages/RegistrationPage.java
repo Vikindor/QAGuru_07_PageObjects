@@ -11,7 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
-    private SelenideElement firstNameInput = $("#firstName"),
+    private SelenideElement userForm = $("#userForm"),
+            firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
             genderInput = $("#genterWrapper"),
@@ -111,7 +112,7 @@ public class RegistrationPage {
     public RegistrationPage checkValidation() {
         String valueName = "border-color";
         String colorRed = "rgb(220, 53, 69)";
-        $("#userForm").shouldHave(cssClass("was-validated"));
+        userForm.shouldHave(cssClass("was-validated"));
         firstNameInput.shouldHave(cssValue(valueName,colorRed));
         lastNameInput.shouldHave(cssValue(valueName,colorRed));
         genderInput.$("label[for='gender-radio-1']").shouldHave(cssValue(valueName,colorRed));
